@@ -15,5 +15,10 @@ npm i
 ## Start Dev
 
 ```bash
+# Only for first build
+npm run build
+```
+
+```bash
 npm run dev
 ```
