@@ -3,19 +3,19 @@ import path from "path";
 import pino from "pino";
 import pretty from "pino-pretty";
 
-const LOG_FOLDER = path.resolve(__dirname, "../logs");
+const logPath = process.env.LOG_FOLDER || path.resolve("logs");
 
-if (!fs.existsSync(LOG_FOLDER)) {
-    fs.mkdirSync(LOG_FOLDER);
+if (!fs.existsSync(logPath)) {
+    fs.mkdirSync(logPath);
 }
 
 const streams: pino.StreamEntry[] = [
     {
-        stream: pino.destination(path.join(LOG_FOLDER, "info.log")),
+        stream: pino.destination(path.join(logPath, "info.log")),
         level: "info",
     },
     {
-        stream: pino.destination(path.resolve(LOG_FOLDER, "error.log")),
+        stream: pino.destination(path.resolve(logPath, "error.log")),
         level: "error",
     },
     {
@@ -23,7 +23,6 @@ const streams: pino.StreamEntry[] = [
             colorize: true,
             sync: true,
             translateTime: "SYS:yyyy-mm-dd hh:MM:ss",
-            messageFormat: "{filename}: {msg}",
         }),
         level: "debug",
     },
