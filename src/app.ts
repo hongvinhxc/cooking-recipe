@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import catchError from "middlewares/errorHandler";
 import logRequest from "middlewares/log-request";
 import api from "routes/api";
 import logger from "utils/logger";
@@ -12,6 +13,7 @@ dotenv.config();
 const app = express();
 
 app.use(logRequest);
+app.use(catchError);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

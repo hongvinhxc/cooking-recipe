@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "utils/database";
-import Ingredient from "./ingredient";
-import Recipe from "./recipe";
+import Ingredient from "./ingredient.model";
+import Recipe from "./recipe.model";
 
 const RecipeIngredients = sequelize.define(
     "RecipeIngredients",

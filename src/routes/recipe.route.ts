@@ -1,12 +1,14 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import validate from "middlewares/validateRequest";
-import { GetRecipeSchema, getRecipeSchema } from "schemas/recipe";
+import { getByIdSchema } from "schemas/common.schema";
+import { getRecipesSchema } from "schemas/recipe.schema";
+import { getRecipeById, getRecipes } from "controllers/recipe.controller";
 
 const recipe = Router();
 
 /**
  * @openapi
- * '/recipe':
+ * '/api/recipe':
  *  get:
  *     tags:
  *     - Recipes
@@ -42,13 +44,11 @@ const recipe = Router();
  *       404:
  *         description: Recipe not found
  */
-recipe.get("/", (req: Request, res: Response) => {
-    res.send("ok");
-});
+recipe.get("/", validate(getRecipesSchema), getRecipes);
 
 /**
  * @openapi
- * '/recipe/{id}':
+ * '/api/recipe/{id}':
  *  get:
  *     tags:
  *     - Recipes
@@ -68,12 +68,6 @@ recipe.get("/", (req: Request, res: Response) => {
  *       404:
  *         description: Recipe not found
  */
-recipe.get(
-    "/:id",
-    validate(getRecipeSchema),
-    (req: Request<GetRecipeSchema["params"]>, res: Response) => {
-        res.send("ok");
-    }
-);
+recipe.get("/:id", validate(getByIdSchema), getRecipeById);
 
 export default recipe;

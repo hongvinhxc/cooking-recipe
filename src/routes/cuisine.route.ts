@@ -1,12 +1,17 @@
 import { Request, Response, Router } from "express";
 import validate from "middlewares/validateRequest";
-import { getCuisinesSchema } from "schemas/cuisine";
+import { ListRespone } from "schemas/common.schema";
+import {
+    Cuisine,
+    GetCuiSinesSchema,
+    getCuisinesSchema,
+} from "schemas/cuisine.schema";
 
 const cuisine = Router();
 
 /**
  * @openapi
- * '/cuisine':
+ * '/api/cuisine':
  *  get:
  *     tags:
  *     - Cuisines
@@ -37,13 +42,26 @@ const cuisine = Router();
  *                    items:
  *                      type: array
  *                      items:
- *                        $ref: '#/components/schema/cuisineResponse'
+ *                        $ref: '#/components/schema/Cuisine'
  *
  *       404:
  *         description: cuisine not found
  */
-cuisine.get("/", (req: Request, res: Response) => {
-    res.send("ok");
-});
+cuisine.get(
+    "/",
+    validate(getCuisinesSchema),
+    (
+        req: Request<{}, {}, {}, GetCuiSinesSchema["query"]>,
+        res: Response<ListRespone<Cuisine>>
+    ) => {
+        req;
+        res.json({
+            items: [{ id: 1, name: "Vietnamese" }],
+            total: 1,
+            pageIndex: 1,
+            pageSize: 0,
+        });
+    }
+);
 
 export default cuisine;
