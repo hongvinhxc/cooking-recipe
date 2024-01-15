@@ -1,11 +1,11 @@
 import z from "zod";
-import { pagingRequest } from "./common";
+import { pagingRequest } from "./common.schema";
 
 /**
  * @openapi
  * components:
  *   schema:
- *     cuisineResponse:
+ *     Cuisine:
  *       type: object
  *       properties:
  *         id:
@@ -23,4 +23,10 @@ export const getCuisinesSchema = z.object({
         .extend(pagingRequest.shape),
 });
 
+export const cuisine = z.object({
+    id: z.number(),
+    name: z.string(),
+});
+
+export type Cuisine = z.TypeOf<typeof cuisine>;
 export type GetCuiSinesSchema = z.TypeOf<typeof getCuisinesSchema>;

@@ -1,4 +1,5 @@
 import z from "zod";
+import { pagingRequest } from "./common.schema";
 
 /**
  * @openapi
@@ -20,7 +21,7 @@ import z from "zod";
  *           default: "1"
  *         imageUrl:
  *           type: string
- *           default: "https://i.imgur.com/QlRphfQ.jpg"
+ *           default: "https://photo-cms-baophapluat.epicdn.me/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg"
  *         instruction:
  *           type: string
  *           default: ""
@@ -46,17 +47,10 @@ import z from "zod";
  *
  */
 
-const params = {
-    params: z.object({
-        id: z.number({
-            description: "recipe id",
-            required_error: "id is required",
-        }),
-    }),
-};
-
-export const getRecipeSchema = z.object({
-    ...params,
+export const getRecipesSchema = z.object({
+    query: z
+        .object({
+            name: z.object({}),
+        })
+        .extend(pagingRequest.shape),
 });
-
-export type GetRecipeSchema = z.TypeOf<typeof getRecipeSchema>;
