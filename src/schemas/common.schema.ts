@@ -1,12 +1,5 @@
 import z from "zod";
 
-export const pagingRequest = z.object({
-    pageSize: z.coerce.number().default(10),
-    pageNumber: z.coerce.number().default(1),
-});
-
-export type PagingRequest = z.TypeOf<typeof pagingRequest>;
-
 /**
  * @openapi
  * components:
@@ -24,6 +17,13 @@ export type PagingRequest = z.TypeOf<typeof pagingRequest>;
  *           type: number
  *
  */
+export const pagingRequest = z.object({
+    pageSize: z.coerce.number().default(10),
+    pageNumber: z.coerce.number().default(1),
+});
+
+export type PagingRequest = z.TypeOf<typeof pagingRequest>;
+
 export type ListRespone<T> = {
     items: T[];
     total: number;

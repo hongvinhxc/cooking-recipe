@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    api:
+        container_name: recipe-api
+        build:
+            context: .
+        image: recipe-api
+        restart: unless-stopped
+        environment:
+            - NODE_ENV=dev
+            - PORT=3000
+        volumes:
+            - ./logs:/logs
+        networks:
+            - recipe-network
+        ports:
+            - "8888:3000"
+            - "8887:3001"
+
+networks:
+    recipe-network:
+        driver: bridge

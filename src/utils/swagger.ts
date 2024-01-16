@@ -1,8 +1,11 @@
+import path from "path";
 import { Express, Request, Response } from "express";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { version } from "../../package.json";
 import log from "./logger";
+
+const srcPath = path.resolve(path.dirname(__dirname));
 
 const options: swaggerJsdoc.Options = {
     definition: {
@@ -13,7 +16,12 @@ const options: swaggerJsdoc.Options = {
         },
         basePath: "api",
     },
-    apis: ["./src/routes/*.ts", "./src/schemas/*.ts"],
+    apis: [
+        path.resolve(srcPath, "routes/*.ts"),
+        path.resolve(srcPath, "schemas/*.ts"),
+        path.resolve(srcPath, "routes/*.js"),
+        path.resolve(srcPath, "schemas/*.js"),
+    ],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
