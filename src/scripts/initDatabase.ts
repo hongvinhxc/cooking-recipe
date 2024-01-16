@@ -54,16 +54,16 @@ function combineRecipeIngredients(
     listIngredientId: number[]
 ) {
     const recipeIngredientPairs = [];
-    const listShuffleIngredientId = listIngredientId.sort(
-        () => 0.5 - Math.random()
-    );
-    const numberIngredient = Math.floor(Math.random() * 11);
-    const listSelectedIngredientId = listShuffleIngredientId.slice(
-        0,
-        numberIngredient
-    );
 
     for (const recipeId of listRecipeId) {
+        const listShuffleIngredientId = listIngredientId.sort(
+            () => 0.5 - Math.random()
+        );
+        const numberIngredient = Math.floor(Math.random() * 5 + 5);
+        const listSelectedIngredientId = listShuffleIngredientId.slice(
+            0,
+            numberIngredient
+        );
         for (const ingredientId of listSelectedIngredientId) {
             const quantity = Math.floor(Math.random() * 10) + 1;
             const unit = ["grams", "cups", "teaspoons", "tablespoons"][
@@ -84,12 +84,14 @@ function combineRecipeIngredients(
 
 const initDatabase = async () => {
     if (process.argv.length < 3 || process.argv[2] !== "init-db") return;
-    logger.info("Init database");
+    logger.info("Initing database...");
     await sequelize.sync({ force: true });
     await initCuisine();
     await initRecipe();
     await initIngredient();
     await generateRecipeIngredient();
+    logger.info("Init database done!");
+    process.exit(0);
 };
 
 export default initDatabase;

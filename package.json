@@ -6,7 +6,8 @@
     "scripts": {
         "start": "nodemon src/app.ts",
         "serve": "cross-env NODE_PATH=./dist node dist/app.js",
-        "build": "tsc"
+        "build": "tsc",
+        "init-db": "ts-node src/app.ts init-db"
     },
     "keywords": [],
     "author": "",

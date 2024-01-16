@@ -1,7 +1,9 @@
+import cuisine from "routes/cuisine.route";
 import { DataTypes } from "sequelize";
 import sequelize from "utils/database";
+import CuisineModel from "./cuisine.model";
 
-const Recipe = sequelize.define(
+const RecipeModel = sequelize.define(
     "Recipe",
     {
         name: {
@@ -11,6 +13,10 @@ const Recipe = sequelize.define(
         cuisineId: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: CuisineModel,
+                key: "id",
+            },
         },
         imageUrl: {
             type: DataTypes.STRING,
@@ -26,4 +32,6 @@ const Recipe = sequelize.define(
     }
 );
 
-export default Recipe;
+RecipeModel.belongsTo(CuisineModel);
+
+export default RecipeModel;

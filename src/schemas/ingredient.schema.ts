@@ -5,7 +5,7 @@ import { pagingRequest } from "./common.schema";
  * @openapi
  * components:
  *   schema:
- *     Cuisine:
+ *     Ingredient:
  *       type: object
  *       properties:
  *         id:
@@ -16,7 +16,7 @@ import { pagingRequest } from "./common.schema";
  *
  */
 
-export const getCuisinesSchema = z.object({
+export const getIngredientsSchema = z.object({
     query: z
         .object({
             name: z.string().optional(),
@@ -24,13 +24,13 @@ export const getCuisinesSchema = z.object({
         .extend(pagingRequest.shape),
 });
 
-export const cuisineSchema = z.object({
+export const ingredientSchema = z.object({
     id: z.number(),
     name: z.string(),
 });
 
-export type CuisineSchema = z.TypeOf<typeof cuisineSchema>;
-export type GetCuiSinesSchema = z.TypeOf<typeof getCuisinesSchema>;
-export type GetCuiSinesQuerySchema = z.TypeOf<
-    typeof getCuisinesSchema
+export type IngredientSchema = z.TypeOf<typeof ingredientSchema>;
+export type GetIngredientsSchema = z.TypeOf<typeof getIngredientsSchema>;
+export type GetIngredientsQuerySchema = z.TypeOf<
+    typeof getIngredientsSchema
 >["query"];

@@ -1,11 +1,7 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { getCuisinesHandler } from "controllers/cuisine.controller";
 import validate from "middlewares/validateRequest";
-import { ListRespone } from "schemas/common.schema";
-import {
-    Cuisine,
-    GetCuiSinesSchema,
-    getCuisinesSchema,
-} from "schemas/cuisine.schema";
+import { getCuisinesSchema } from "schemas/cuisine.schema";
 
 const cuisine = Router();
 
@@ -47,21 +43,6 @@ const cuisine = Router();
  *       404:
  *         description: cuisine not found
  */
-cuisine.get(
-    "/",
-    validate(getCuisinesSchema),
-    (
-        req: Request<{}, {}, {}, GetCuiSinesSchema["query"]>,
-        res: Response<ListRespone<Cuisine>>
-    ) => {
-        req;
-        res.json({
-            items: [{ id: 1, name: "Vietnamese" }],
-            total: 1,
-            pageIndex: 1,
-            pageSize: 0,
-        });
-    }
-);
+cuisine.get("/", validate(getCuisinesSchema), getCuisinesHandler);
 
 export default cuisine;

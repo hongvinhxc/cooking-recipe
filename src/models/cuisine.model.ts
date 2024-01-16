@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "utils/database";
 
-const Cuisine = sequelize.define(
+const CuisineModel = sequelize.define(
     "Cuisine",
     {
         name: {
@@ -14,4 +14,4 @@ const Cuisine = sequelize.define(
     }
 );
 
-export default Cuisine;
+export default CuisineModel;

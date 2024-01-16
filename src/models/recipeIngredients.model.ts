@@ -1,16 +1,16 @@
 import { DataTypes } from "sequelize";
 import sequelize from "utils/database";
-import Ingredient from "./ingredient.model";
-import Recipe from "./recipe.model";
+import RecipeModel from "./recipe.model";
+import IngredientModel from "./ingredient.model";
 
-const RecipeIngredients = sequelize.define(
+const RecipeIngredientsModel = sequelize.define(
     "RecipeIngredients",
     {
         recipeId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Recipe,
+                model: RecipeModel,
                 key: "id",
             },
         },
@@ -18,7 +18,7 @@ const RecipeIngredients = sequelize.define(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Ingredient,
+                model: IngredientModel,
                 key: "id",
             },
         },
@@ -36,15 +36,13 @@ const RecipeIngredients = sequelize.define(
     }
 );
 
-Recipe.belongsToMany(Ingredient, {
-    through: RecipeIngredients,
+RecipeModel.belongsToMany(IngredientModel, {
+    through: RecipeIngredientsModel,
     foreignKey: "recipeId",
-    as: "Recipe",
 });
-Ingredient.belongsToMany(Recipe, {
-    through: RecipeIngredients,
+IngredientModel.belongsToMany(RecipeModel, {
+    through: RecipeIngredientsModel,
     foreignKey: "ingredientId",
-    as: "Ingredient",
 });
 
-export default RecipeIngredients;
+export default RecipeIngredientsModel;

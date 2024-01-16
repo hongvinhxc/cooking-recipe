@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import catchError from "middlewares/errorHandler";
-import logRequest from "middlewares/log-request";
+import logRequest from "middlewares/logRequest";
 import api from "routes/api";
 import logger from "utils/logger";
 import swaggerDocs from "utils/swagger";

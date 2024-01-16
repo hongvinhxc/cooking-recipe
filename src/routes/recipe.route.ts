@@ -18,6 +18,23 @@ const recipe = Router();
  *        in: query
  *        description: Search recipe by name
  *        required: false
+ *      - name: cuisineId
+ *        in: query
+ *        description: Search recipe by cuisine
+ *        required: false
+ *        schema:
+ *          type: array
+ *          items:
+ *            type: integer
+ *      - name: ingredientId
+ *        in: query
+ *        description: Search recipe by ingredient
+ *        required: false
+ *        schema:
+ *          type: array
+ *          items:
+ *            type: integer
+ *        collectionFormat: multi
  *      - name: pageSize
  *        in: query
  *        description: The page size of pagination

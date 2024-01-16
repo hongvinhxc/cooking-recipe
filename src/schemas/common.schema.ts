@@ -1,18 +1,9 @@
 import z from "zod";
 
 export const pagingRequest = z.object({
-    pageSize: z.number(),
-    pageNumber: z.number(),
+    pageSize: z.coerce.number(),
+    pageNumber: z.coerce.number(),
 });
-
-export const makeListResponse = <T extends z.ZodTypeAny>(item: T) => {
-    return z.object({
-        items: z.array(item),
-        total: z.number().min(0),
-        pageSize: z.number().min(1),
-        pageNumber: z.number().min(1),
-    });
-};
 
 export type PagingRequest = z.TypeOf<typeof pagingRequest>;
 
@@ -37,7 +28,7 @@ export type ListRespone<T> = {
     items: T[];
     total: number;
     pageSize: number;
-    pageIndex: number;
+    pageNumber: number;
 };
 
 export const getByIdSchema = z.object({

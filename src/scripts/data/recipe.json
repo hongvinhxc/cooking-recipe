@@ -1,11 +1,5 @@
 [
     {
-        "name": "Margherita Pizza",
-        "cuisineId": 1,
-        "imageUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/4F1526F0-0A46-4C87-A3D5-E80AD76C0D70/Derivates/0A2B6AEB-72A5-4CE4-911B-0222E765DAA3.jpg",
-        "instruction": "1. Preheat the oven to 475°F (245°C). \n2. Roll out the pizza dough into a round shape. \n3. Spread tomato sauce evenly on the dough. \n4. Sprinkle shredded mozzarella cheese on top. \n5. Add fresh basil leaves. \n6. Bake in the preheated oven for about 10-12 minutes or until the crust is golden brown. \n7. Remove from the oven, let it cool slightly, and serve."
-    },
-    {
         "name": "Kung Pao Chicken",
         "cuisineId": 2,
         "imageUrl": "https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-scaled.jpg",
@@ -18,15 +12,21 @@
         "instruction": "1. Marinate thinly sliced pork shoulder with a mixture of pineapple juice, achiote paste, garlic, and spices for at least 2 hours. \n2. Heat a grill or skillet over medium-high heat. \n3. Cook the marinated pork until browned and cooked through. \n4. Warm corn tortillas on the grill or in a dry skillet. \n5. Fill each tortilla with the cooked pork. \n6. Top with diced onions, chopped cilantro, and a squeeze of lime. \n7. Serve with salsa and guacamole on the side."
     },
     {
-        "name": "Butter Chicken",
-        "cuisineId": 4,
-        "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2021/02/butter-chicken-ac2ff98.jpg?quality=90&resize=440,400",
-        "instruction": "1. Marinate boneless chicken pieces in yogurt, lemon juice, ginger-garlic paste, and spices for at least 1 hour. \n2. Heat oil and butter in a pan over medium heat. \n3. Sauté onions until golden brown. \n4. Add ginger-garlic paste and sauté for another minute. \n5. Add tomato puree, turmeric, chili powder, and garam masala. \n6. Cook the sauce for 5-6 minutes. \n7. Add the marinated chicken and cook until tender. \n8. Stir in heavy cream and fenugreek leaves. \n9. Simmer for a few minutes. \n10. Garnish with fresh cilantro and serve with naan bread or rice."
+        "name": "Margherita Pizza",
+        "cuisineId": 1,
+        "imageUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/4F1526F0-0A46-4C87-A3D5-E80AD76C0D70/Derivates/0A2B6AEB-72A5-4CE4-911B-0222E765DAA3.jpg",
+        "instruction": "1. Preheat the oven to 475°F (245°C). \n2. Roll out the pizza dough into a round shape. \n3. Spread tomato sauce evenly on the dough. \n4. Sprinkle shredded mozzarella cheese on top. \n5. Add fresh basil leaves. \n6. Bake in the preheated oven for about 10-12 minutes or until the crust is golden brown. \n7. Remove from the oven, let it cool slightly, and serve."
     },
     {
         "name": "Sushi Rolls",
         "cuisineId": 5,
         "imageUrl": "https://www.themidwestkitchenblog.com/wp-content/uploads/2022/08/ultimate-sushi-recipe-scaled.jpg",
         "instruction": "1. Cook sushi rice according to package instructions. \n2. Lay a sheet of nori seaweed on a bamboo sushi mat. \n3. Moisten your hands with water and spread a thin layer of rice over the nori, leaving a small border at the top. \n4. Arrange your choice of fillings (such as sliced raw fish, avocado, cucumber, or cooked shrimp) in a line across the rice. \n5. Roll the sushi tightly using the bamboo mat, applying gentle pressure. \n6. Moisten the top border of the nori with water to seal the roll. \n7. Repeat with more nori and fillings. \n8. Slice the sushi rolls into bite-sized pieces. \n9. Serve with soy sauce, pickled ginger, and wasabi."
+    },
+    {
+        "name": "Butter Chicken",
+        "cuisineId": 4,
+        "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2021/02/butter-chicken-ac2ff98.jpg?quality=90&resize=440,400",
+        "instruction": "1. Marinate boneless chicken pieces in yogurt, lemon juice, ginger-garlic paste, and spices for at least 1 hour. \n2. Heat oil and butter in a pan over medium heat. \n3. Sauté onions until golden brown. \n4. Add ginger-garlic paste and sauté for another minute. \n5. Add tomato puree, turmeric, chili powder, and garam masala. \n6. Cook the sauce for 5-6 minutes. \n7. Add the marinated chicken and cook until tender. \n8. Stir in heavy cream and fenugreek leaves. \n9. Simmer for a few minutes. \n10. Garnish with fresh cilantro and serve with naan bread or rice."
     }
 ]
