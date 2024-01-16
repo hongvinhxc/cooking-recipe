@@ -1,8 +1,8 @@
 import z from "zod";
 
 export const pagingRequest = z.object({
-    pageSize: z.coerce.number(),
-    pageNumber: z.coerce.number(),
+    pageSize: z.coerce.number().default(10),
+    pageNumber: z.coerce.number().default(1),
 });
 
 export type PagingRequest = z.TypeOf<typeof pagingRequest>;

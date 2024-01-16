@@ -21,10 +21,12 @@ const ingredient = Router();
  *        in: query
  *        description: The page size of pagination
  *        required: true
+ *        default: 10
  *      - name: pageNumber
  *        in: query
  *        description: The page number of pagination
  *        required: true
+ *        default: 1
  *     responses:
  *       200:
  *         description: Success

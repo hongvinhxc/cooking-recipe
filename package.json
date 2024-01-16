@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "nodemon src/app.ts",
-        "serve": "cross-env NODE_PATH=./dist node dist/app.js",
+        "serve": "cross-env NODE_PATH=./dist/src node dist/src/app.js",
         "build": "tsc",
         "init-db": "ts-node src/app.ts init-db"
     },

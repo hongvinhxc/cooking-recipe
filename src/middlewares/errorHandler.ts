@@ -1,7 +1,11 @@
-import { Request, Response } from "express";
-import logger from "utils/logger";
+import { NextFunction, Request, Response } from "express";
 
-const catchError = (error: Error, req: Request, res: Response, next) => {
+const catchError = (
+    error: Error,
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     if (res.headersSent) {
         return next(error);
     }
