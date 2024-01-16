@@ -7,6 +7,7 @@ import api from "routes/api";
 import logger from "utils/logger";
 import swaggerDocs from "utils/swagger";
 import { testConnection } from "utils/database";
+import initDatabase from "scripts/initDatabase";
 
 dotenv.config();
 
@@ -27,4 +28,5 @@ app.listen(port, async () => {
     app.use("/api", api);
 
     swaggerDocs(app, port);
+    initDatabase();
 });
