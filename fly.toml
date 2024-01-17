@@ -1,0 +1,30 @@
+# fly.toml app configuration file generated for cooking-recipe-backend on 2024-01-17T08:28:43+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "cooking-recipe-backend"
+primary_region = "hkg"
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+[mounts]
+  source = "sqlite_data"
+  destination = "/mnt/sqlite_data"
+
+[env]
+  SQLITE_PATH = "/mnt/sqlite_data/db.sqlite"
+  

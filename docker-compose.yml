@@ -8,15 +8,15 @@ services:
         image: recipe-api
         restart: unless-stopped
         environment:
-            - NODE_ENV=dev
             - PORT=3000
+            - SQLITE_PATH=/db.sqlite
         volumes:
             - ./logs:/logs
+            - ./db.sqlite:/db.sqlite
         networks:
             - recipe-network
         ports:
             - "8888:3000"
-            - "8887:3001"
 
 networks:
     recipe-network:

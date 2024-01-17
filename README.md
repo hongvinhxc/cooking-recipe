@@ -15,10 +15,11 @@ npm i
 ## Start Dev
 
 ```bash
-# Only for first build
-npm run build
+npm start
 ```
 
+## Init database
+
 ```bash
-npm run dev
+npm run init-db
 ```
